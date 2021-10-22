@@ -171,7 +171,7 @@
 			<key>Required</key>
 			<false/>
 			<key>Name</key>
-			<string>Target App</string>
+			<string>Target App(MONKEYDEV_TARGET_APP)</string>
 			<key>NotPersisted</key>
 			<true/>
 			<key>Description</key>
