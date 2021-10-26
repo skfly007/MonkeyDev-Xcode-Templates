@@ -14,7 +14,8 @@
 #import <Cycript/Cycript.h>
 #import <MDCycriptManager.h>
 
-CHConstructor{
+CHConstructor
+{
     printf(INSERT_SUCCESS_WELCOME);
     
     [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationDidFinishLaunchingNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
@@ -28,7 +29,8 @@ CHConstructor{
         NSError* error;
         NSString* result = [manager evaluateCycript:@"UIApp" error:&error];
         NSLog(@"result: %@", result);
-        if(error.code != 0){
+        if(error.code != 0)
+        {
             NSLog(@"error: %@", error.localizedDescription);
         }
 #endif
@@ -43,18 +45,21 @@ CHDeclareClass(CustomViewController)
 #pragma clang diagnostic ignored "-Wstrict-prototypes"
 
 //add new method
-CHDeclareMethod1(void, CustomViewController, newMethod, NSString*, output){
+CHDeclareMethod1(void, CustomViewController, newMethod, NSString*, output)
+{
     NSLog(@"This is a new method : %@", output);
 }
 
 #pragma clang diagnostic pop
 
-CHOptimizedClassMethod0(self, void, CustomViewController, classMethod){
+CHOptimizedClassMethod0(self, void, CustomViewController, classMethod)
+{
     NSLog(@"hook class method");
     CHSuper0(CustomViewController, classMethod);
 }
 
-CHOptimizedMethod0(self, NSString*, CustomViewController, getMyName){
+CHOptimizedMethod0(self, NSString*, CustomViewController, getMyName)
+{
     //get origin value
     NSString* originName = CHSuper(0, CustomViewController, getMyName);
     
@@ -80,7 +85,8 @@ CHOptimizedMethod0(self, NSString*, CustomViewController, getMyName){
 //add new property
 CHPropertyRetainNonatomic(CustomViewController, NSString*, newProperty, setNewProperty);
 
-CHConstructor{
+CHConstructor
+{
     CHLoadLateClass(CustomViewController);
     CHClassHook0(CustomViewController, getMyName);
     CHClassHook0(CustomViewController, classMethod);

@@ -12,6 +12,7 @@
 
 #define INSERT_SUCCESS_WELCOME "               🎉!!！congratulations!!！🎉\n👍----------------insert dylib success----------------👍\n"
 
+//为了演示CaptainHook框架用法而定义的一个类
 @interface CustomViewController
 
 @property (nonatomic, copy) NSString* newProperty;
