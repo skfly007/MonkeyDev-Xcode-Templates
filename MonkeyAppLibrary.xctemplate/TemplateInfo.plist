@@ -456,7 +456,7 @@
 			<key>Indent</key>
 			<integer>1</integer>
 		</dict>
-		<key>___PACKAGENAME___-Prefix.pch</key>
+		<key>___PACKAGENAME___/___PACKAGENAME___-Prefix.pch</key>
 		<dict>
 			<key>Beginning</key>
 			<string>//
